@@ -1,79 +1,65 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main() {
-    char salesperson, choice;
-    double salesD = 0, salesE = 0, salesF = 0, saleAmount;
-    double grandTotal = 0; // Running total of all sales
-    char topSeller = 'N';  // Tracks highest seller
-    double highestSale = 0; // Tracks highest sales amount
+    char initial;
+    double dSales = 0, eSales = 0, fSales = 0, saleAmount;
 
     while (1) {
         // Prompt for salesperson initial
-        printf("Enter salesperson initial (D, E, F): ");
-        scanf(" %c", &salesperson);  // Space before %c fixes input issues
+        printf("Enter salesperson initial (D, E, F) or Z to quit: ");
+        scanf(" %c", &initial);
+        initial = toupper(initial); // Convert to uppercase for consistency
 
-        // Convert lowercase to uppercase
-        if (salesperson >= 'a' && salesperson <= 'z') {
-            salesperson -= 32;
+        // Check for exit condition
+        if (initial == 'Z') {
+            break;
         }
 
-        // Validate the input
-        if (salesperson == 'D' || salesperson == 'E' || salesperson == 'F') {
-            printf("Enter sale amount: ");
-            if (scanf("%lf", &saleAmount) != 1 || saleAmount < 0) { 
-                printf("Invalid sale amount. Try again.\n");
-                while (getchar() != '\n'); // Clear buffer
-                continue;
-            }
-
-            // Add sale amount to the respective salesperson
-            if (salesperson == 'D') {
-                salesD += saleAmount;
-            } else if (salesperson == 'E') {
-                salesE += saleAmount;
-            } else if (salesperson == 'F') {
-                salesF += saleAmount;
-            }
-        } else {
-            printf("Error: Invalid salesperson selected, please try again.\n");
-            continue; // Restart loop without asking to continue
+        // Validate initial
+        if (initial != 'D' && initial != 'E' && initial != 'F') {
+            printf("Invalid salesperson initial. Please enter D, E, F, or Z to quit.\n");
+            continue;
         }
 
-        // Ask the user if they want to continue
-        printf("Do you want to enter another sale? (Y/N): ");
-        scanf(" %c", &choice);
-
-        // Convert lowercase to uppercase
-        if (choice >= 'a' && choice <= 'z') {
-            choice -= 32;
+        // Prompt for sales amount
+        printf("Enter the amount of the sale: ");
+        if (scanf("%lf", &saleAmount) != 1 || saleAmount < 0) {
+            printf("Invalid sale amount. Please enter a positive number.\n");
+            while (getchar() != '\n'); // Clear input buffer
+            continue;
         }
 
-        if (choice == 'N') {
-            break; // Exit loop if user chooses not to continue
+        // Update sales totals
+        switch (initial) {
+            case 'D': dSales += saleAmount; break;
+            case 'E': eSales += saleAmount; break;
+            case 'F': fSales += saleAmount; break;
         }
     }
 
-    // Compute totals
-    grandTotal = salesD + salesE + salesF;
-    topSeller = 'D';
-    highestSale = salesD;
+    // Calculate total sales
+    double totalSales = dSales + eSales + fSales;
 
-    if (salesE > highestSale) {
-        highestSale = salesE;
-        topSeller = 'E';
+    // Determine top salesperson
+    char topSalesperson = 'D';
+    double maxSales = dSales;
+    if (eSales > maxSales) {
+        maxSales = eSales;
+        topSalesperson = 'E';
     }
-    if (salesF > highestSale) {
-        highestSale = salesF;
-        topSeller = 'F';
+    if (fSales > maxSales) {
+        maxSales = fSales;
+        topSalesperson = 'F';
     }
 
-    // Display final results
-    printf("\nTotal Sales:\n");
-    printf("Danielle (D): $%.0f\n", salesD);
-    printf("Edward (E): $%.0f\n", salesE);
-    printf("Francis (F): $%.0f\n", salesF);
-    printf("\nGrand Total: $%.0f\n", grandTotal);
-    printf("Highest Sale: %c\n", topSeller);
+    // Display results
+    printf("\nSales Summary:\n");
+    printf("Danielle's total sales: $%.2f\n", dSales);
+    printf("Edward's total sales: $%.2f\n", eSales);
+    printf("Francis' total sales: $%.2f\n", fSales);
+    printf("Grand total sales: $%.2f\n", totalSales);
+    printf("Top salesperson: %c\n", topSalesperson);
 
     return 0;
 }
