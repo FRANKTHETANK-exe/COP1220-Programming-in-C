@@ -5,7 +5,7 @@
 // Caesar Cipher
 void caesarCipher(char* input, int shift, char* output) {
     int i;
-    shift = shift % 26; // Normalize shift
+    shift = shift % 26; // Normalize shit
     for (i = 0; input[i] != '\0'; i++) {
         char c = input[i];
         if (isalpha(c)) {
