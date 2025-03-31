@@ -32,7 +32,7 @@ void to_pig_latin(char *word, char *result) {
         int i = 0;
         while (i < len && !is_vowel(word[i])) i++;
         if (i == len) {
-            sprintf(result, "%say", word); // all consonants (e.g. "hmm")
+            sprintf(result, "%say", word); // all consonants
         } else {
             sprintf(result, "%s%.*say", &word[i], i, word);
         }
