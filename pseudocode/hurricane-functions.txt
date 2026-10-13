@@ -1,0 +1,23 @@
+Define determineCategory
+If windspeed >= 157:
+PRINT category 5
+Else if windspeed >=130:
+PRINT category 4
+Else if windspeed >=111:
+PRINT category 3
+Else if windspeed >=96
+PRINT category 2
+ELSE if windspeed >=74
+PRINT category 1
+Else:
+Print not a hurricane
+
+Define getWindSpeed
+Print “Enter the wind speed in mph”
+Read windSpeed
+Return windSpeed
+
+Define main
+Windspeed <- call getWindSpeed
+CALL determineCategory
+CALL main

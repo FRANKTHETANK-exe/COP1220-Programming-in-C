@@ -1,0 +1,21 @@
+Begin
+Set input to an empty string
+Set output to an empty string
+
+Print “enter a sentence to translate to Pig Latin:”
+Read input from user
+
+For each word in input if word starts with vowel then 
+Add ‘yay’ to the end of the word
+Else
+Move starting consonants to the end of word
+Add “ay” to end 
+End if
+
+Keep punctuation and spaces the same 
+Add translated word to output 
+Endfor
+
+Print output
+
+end

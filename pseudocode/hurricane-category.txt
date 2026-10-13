@@ -1,0 +1,18 @@
+Begin
+Declare windspeed as float
+
+Print “enter the wind speed in mph:”
+Read windspeed from user
+
+If windspeed more than or equal to 157 
+Print category 5
+Else if windspeed is more or equal to 130 then
+Print category 4 
+Else if windspeed is more or equal to 111 then
+Print category 3
+Else if windspeed is more or equal to 96 then
+Prirnt category 2
+Else if windspeed is more or equal to 74 then 
+Print category 1
+Else 
+Print not a hurricane

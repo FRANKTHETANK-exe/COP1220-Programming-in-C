@@ -1,0 +1,37 @@
+BEGIN
+    SET dSales, eSales, fSales to 0
+
+    LOOP
+        PRINT Enter salesperson initial (D, E, F) or Z to quit: 
+        READ initial
+        CONVERT initial TO UPPERCASE
+
+        IF initial == 'Z' THEN EXIT LOOP
+        IF initial NOT IN (D,E,F) THEN
+            PRINT Invalid input. Try again.
+            CONTINUE LOOP
+        ENDIF
+
+        PRINT Enter the amount of the sale: 
+        READ saleAmount
+
+        IF saleAmount < 0 THEN
+            PRINT Invalid amount. Enter a positive number.
+            CONTINUE LOOP
+        ENDIF
+
+        IF initial == D THEN dSales = dSales + saleAmount
+        ELSE IF initial == E THEN eSales = eSales + saleAmount
+        ELSE fSales = fSales + saleAmount
+    ENDLOOP
+
+    SET totalSales = dSales + eSales + fSales
+    SET topSalesperson = salesperson with highest sales
+
+    PRINT "Sales Summary:"
+    PRINT "Danielle's total sales: $" + dSales
+    PRINT "Edward's total sales: $" + eSales
+    PRINT "Francis' total sales: $" + fSales
+    PRINT "Grand total sales: $" + totalSales
+    PRINT "Top salesperson: " + topSalesperson
+END

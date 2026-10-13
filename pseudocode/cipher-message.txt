@@ -1,0 +1,40 @@
+Begin
+
+Set input to an empty string
+Set output to an empty string
+Set shift to 0
+
+Print “Enter text:”
+Read input from user
+
+Print “Enter shifts:”
+Read shifts from user
+
+Print “text: [input]”
+Print “Shift: [shift]”
+
+If shift is between 0 and 25 (inclusive) THEN
+For each character input 
+If character is a letter then
+Get base ASCII (‘A’ if uppercase, ‘a’ if lowercase )
+Apply Ceaser cipher format
+Shifted_char = ((char – base + shift) % 26) + base
+Else
+Copy non letter character as is to output 
+Endif
+Endfor
+Else
+For each word in input
+If word starts with a vowel then 
+Add “yay” to the end of the word
+Else
+Move starting consonants to the end of the word
+Add “ay” to the end of the word
+Endif 
+Preserve punctuation and spacing
+Add translated word to output
+Endfor
+Endif
+
+Print “cipher: [output]”
+end

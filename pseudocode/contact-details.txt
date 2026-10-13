@@ -1,0 +1,18 @@
+Prompt user to enter their name
+Read the user’s name
+
+Prompt user to enter their birthdate
+Read the user’s birthdate
+
+Prompt user to enter their work phone number
+Read the user's work phone number
+
+Prompt user to enter their cell phone number
+Read the user’s cell phone number
+
+Display the user’s name
+Display the user's birthdate
+Display the user's work phone with the label “work”
+Display the user's cell phone number with label “cell”
+
+END

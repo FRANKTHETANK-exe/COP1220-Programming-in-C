@@ -1,0 +1,21 @@
+Begin
+Define a struct SalesPerson with:
+Initial (character)
+Name (string)
+Sales (Float)
+Create an array of 3 SalesPerson structs:
+Danielle (‘D’), Edward (‘E’), Francis (‘F’)
+Set their sales to 0
+Loop until user enters ‘Z’
+EXIT Loop
+If Initial is D, E, or F:
+Prompt user for sale amount
+READ sales amount
+ADD sale amount to the correct salesperson’s sales
+ELSE:
+PRINT error message for invalid input
+END LOOP
+CALCULATE grand total of all sales
+Find SalesPerson with the highest sales
+DISPLAY grand total 
+DISPLAY highest salesperson initial

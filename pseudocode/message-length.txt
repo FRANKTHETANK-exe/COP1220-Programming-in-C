@@ -1,0 +1,17 @@
+Begin
+Define MAX_LENGHT as 140
+Declare message as string with a large enough size
+
+Print “Enter Your Message: ”
+Read user input into message
+
+Remove newline character from message if there
+
+Set length = length of message
+
+If length is less or equal to max_lenght then
+PRINT “Posted”
+Else 
+PRINT “Rejected”
+Endif
+end
